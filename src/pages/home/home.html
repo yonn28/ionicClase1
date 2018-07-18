@@ -4,6 +4,9 @@
       Tareas
     </ion-title>
     <ion-buttons end>
+      <button ion-button *ngIf="!habilitarOrdenamiento"
+      (click)="toogleOrdenamiento()">Listo</button>
+      <button ion-button *ngIf="habilitarOrdenamiento" (click)="toogleOrdenamiento()">Editar</button>
       <button ion-buttons (click)="agregarTarea()">
           <ion-icon name="add"> </ion-icon>
       </button>
@@ -12,11 +15,17 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>Tarea 1</ion-item>
-    <ion-item>Tarea 1</ion-item>
-    <ion-item>Tarea 1</ion-item>
-    <ion-item>Tarea 1</ion-item>
+  <ion-list (ionItemReorder)="ordenarArray($event)" [reorder]="habilitarOrdenamiento">
+      <ion-item-sliding *ngFor="let tarea of tareas">
+        <ion-item>{{tarea}}</ion-item>
+        <ion-item-options>
+          <button ion-button>
+                <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+      
   </ion-list>
  
   
