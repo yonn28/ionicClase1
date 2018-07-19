@@ -15,7 +15,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list (ionItemReorder)="ordenarArray($event)" [reorder]="habilitarOrdenamiento">
+  <ion-list (ionItemReorder)="ordenarArray($event)" color="dark" [reorder]="habilitarOrdenamiento">
       <ion-item-sliding *ngFor="let tarea of tareas;let indiceTarea=index" color="danger">
         <ion-item>{{tarea}}</ion-item>
         <ion-item-options>
@@ -23,13 +23,18 @@
                 <ion-icon name="trash"></ion-icon>
           </button>
         </ion-item-options>
+        <ion-item-options side="left">
+          <button ion-button (click)="editarTarea(indiceTarea)">
+            <ion-icon name="create"></ion-icon>
+          </button>
+        </ion-item-options>
       </ion-item-sliding> 
   </ion-list>
  
   <ion-fab bottom right (click)="irPaginaTareasArchivadas()">
       <button ion-fab> 
-  <!-- <ion-fab bottom right >  -->
-    <!-- <button ion-fab [navPush]="irPagina"> -->
+  <!-- <ion-fab bottom right > 
+     <button ion-fab [navPush]="irPagina">  -->
       <ion-icon name="archive"></ion-icon>
     </button>
   </ion-fab>

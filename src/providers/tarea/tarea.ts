@@ -27,5 +27,7 @@ export class TareaProvider {
   obtenerTareasArchivadas(){
     return this.tareasArchivadas;
   }
-
+  editarTarea(indiceTarea, nuevaTarea){
+    this.tareas[indiceTarea]=nuevaTarea;
+  }
 }

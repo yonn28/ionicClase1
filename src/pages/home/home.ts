@@ -62,4 +62,26 @@ export class HomePage {
   archivarTarea(indiceTarea){
     this.servicioTareas.archivarTarea(indiceTarea);
   }
+  editarTarea(indiceTarea){
+     let alerta=this.alertController.create({
+       title:"Editar tarea",
+       message:"por favor ingrese la nueva tarea",
+       inputs:[
+         {
+           name:"editarTareaInput",
+           value:this.tareas[indiceTarea]
+         }
+       ],
+       buttons:[
+         {text:"cancelar"},
+         {text:"listo",
+            handler:data=>{
+                  this.servicioTareas.editarTarea(indiceTarea,data.editarTareaInput);
+            }
+        }
+       ]
+     });
+     alerta.present();
+     
+  }
 }
