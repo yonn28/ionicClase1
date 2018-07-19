@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController,AlertController,reorderArray} from 'ionic-angular';
 import { TareaProvider } from '../../providers/tarea/tarea';
+import {TareasArchivadasPage} from '../tareas-archivadas/tareas-archivadas';
 
 
 @Component({
@@ -9,6 +10,7 @@ import { TareaProvider } from '../../providers/tarea/tarea';
 })
 export class HomePage {
   tareas =[];
+  // irPagina=TareasArchivadasPage;
   habilitarOrdenamiento=true;
   constructor(
   public navCtrl: NavController,
@@ -48,10 +50,16 @@ export class HomePage {
   }
   toogleOrdenamiento(){
     this.habilitarOrdenamiento=!this.habilitarOrdenamiento; 
-    console.log("entre a toogle");
+    //console.log("entre a toogle");
   }
   ordenarArray(evento){
     reorderArray(this.tareas,evento)
     // console.log(evento);
+  }
+  irPaginaTareasArchivadas(){
+     this.navCtrl.push(TareasArchivadasPage);
+  }
+  archivarTarea(indiceTarea){
+    this.servicioTareas.archivarTarea(indiceTarea);
   }
 }

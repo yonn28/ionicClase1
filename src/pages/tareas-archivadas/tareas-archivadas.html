@@ -1,0 +1,28 @@
+<!--
+  Generated template for the TareasArchivadasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>tareasArchivadas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-list (ionItemReorder)="ordenarArray($event)">
+        <ion-item-sliding *ngFor="let tarea of TareasArchivas;let indiceTarea=index">
+              <ion-item>{{tarea}}</ion-item>
+              <ion-item-options>
+                <button ion-button>
+                      <ion-icon name="trash"></ion-icon>
+                </button>
+              </ion-item-options>
+            </ion-item-sliding> 
+        </ion-list>
+</ion-content>

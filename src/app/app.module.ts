@@ -7,20 +7,24 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TareaProvider } from '../providers/tarea/tarea';
+import { TareasArchivadasPage } from '../pages/tareas-archivadas/tareas-archivadas';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    TareasArchivadasPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp)
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    TareasArchivadasPage
   ],
   providers: [
     StatusBar,
